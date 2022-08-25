@@ -2,7 +2,6 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "app-auth0": "apps/app-auth0",
-    "app-auth0-e2e": "apps/app-auth0-e2e"
+    "app-auth0": "apps/app-auth0"
   }
 }
