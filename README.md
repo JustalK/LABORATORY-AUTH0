@@ -1,7 +1,20 @@
 # LABORATORY-AUTH0
 
+The goal of this laboratory was to test how a OIDC as a service work and how to implement passwordless application work using **Auth0**. The project is a **React** application built inside a **NX WorkSpace**. The passwordless system in place is using the email.
+
+## Theory
+#### Definitions
+**Auth0** is an identity layer built on top of the OAuth 2.0 framework. It allows third-party applications to verify the identity of the end-user and to obtain basic user profile information.
+
+**Passwordless** connections allow users to log in without the need to remember a password. Instead, users enter their mobile phone number or email address and receive a one-time code or link, which they can then use to log in.
+
+#### Mermaid pipeline
+
 ![./documentation/passwordless.jpg](./documentation/passwordless.jpg)
 
+The principle is simple, the user give an email to the app. The OIDC, Auth0 is our case, will send an email containing either a link or a code to the email entered by the user. In the next screen, the user will be asked to enter the code received in order to connect to the app.
+
+In this scenario, no password has been provided and we only rely on the email or phone number that the user should have access.
 
 ## Development
 
