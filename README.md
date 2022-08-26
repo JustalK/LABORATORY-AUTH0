@@ -26,7 +26,7 @@ import { Auth0Provider } from '@auth0/auth0-react';
 />
 ```
 
-This component can be found in the root of our app inside `main.tsx`.
+This component can be found in the root of our app inside `main.tsx`. The information can be found in the Auth0 website. Look the next section for more information.
 
 #### Home
 
@@ -81,8 +81,50 @@ const { user } = useAuth0();
 
 ## Auth0 Settings
 
-![./documentation/AUTH0/1.png](./documentation/AUTH0/1.png)
+Most of the settings will happen on the Auth0 platform. After some testing with it, I found it quite agreable to use. The documentation however is way to split for finding whatever you are trying to find. So I wasted some time before I found why my passwordless login was not proposing me to enter a code.
 
+
+The first important page is in `Application`, the entire information to give to the provider in React can be found there:
+
+![./documentation/AUTH0/2.png](./documentation/AUTH0/2.png)
+
+In the same page, we also need to define where the login will redirect us, what url is allowed to use this login and so on. Since I am using everything locally, I have configured every part of this section with the local url: *http://localhost:4200*
+
+![./documentation/AUTH0/3.png](./documentation/AUTH0/3.png)
+
+My goal with this laboratory was to experiment how passwordless appilcation work with a OIDC. So I needed to activate the passwordless requirement.
+
+For this, I clicked on the menu in `Authentification` and `passwordless`. You have there two choices. I could have connected twilio and play with the sms passwordless system but I decided to go with the email system. And also, I dont have any money to spend on twilio.
+
+![./documentation/AUTH0/4.png](./documentation/AUTH0/4.png)
+
+Upon activation, a popup will open where you can define the email that will be sent. In my case I did not really wanted to make any difference. So I just keep their template as it was.
+
+![./documentation/AUTH0/5.png](./documentation/AUTH0/5.png)
+
+In the next tab, I activated the passwordless on the application I configured earlier.
+
+![./documentation/AUTH0/6.png](./documentation/AUTH0/6.png)
+
+The next step is in the branding, we need to activate the Universal Login in order to be able to use our new MFA system. Since I am not really planning to use this for a company but just testing the feature, I just save this part and clicked on the `Advanced Options`
+
+![./documentation/AUTH0/7.png](./documentation/AUTH0/7.png)
+
+In the `Login` tab, I activated the customize login page and I did the same for the MFA page (Multi-Factor Authentication Page) since I will be using it for entering the code:
+
+![./documentation/AUTH0/8.png](./documentation/AUTH0/8.png)
+![./documentation/AUTH0/9.png](./documentation/AUTH0/9.png)
+
+Upon this, I was finally able to use my OIDC has a poasswordless system using the email for receiving a code giving me the authentification and information for my app.
+#### A bit more
+
+In Auth0, you can obviously, look at who is connecting, when and what did they use. We can change anything related to them.
+
+![./documentation/AUTH0/10.png](./documentation/AUTH0/10.png)
+
+We can also check and configure multiple database and system of authentification. Every is as simple as a toggle to switch.
+
+![./documentation/AUTH0/1.png](./documentation/AUTH0/1.png)
 ## Running
 
 With NX, the following command can run the application:
